@@ -73,6 +73,21 @@ git commit -m "迭代 checkpoint: <本次做了什么>"
 
 禁止在 commit 末尾添加 `Co-Authored-By: Claude ...` 行。
 
+### 提交格式
+
+commit message 分两段：**第一行简要描述，空行，之后详细描述**。
+
+- **第一行（subject）**：简要描述，**不超过 70 字符**。写清"做什么"，如 `PMM: 新增需求列表与详情页`
+- **空一行**
+- **后续行（body）**：详细描述，展开第一行；多行时每行一行要点。内容写对外可见的交付（见上条"最终 commit message 只能写..."），可不写
+
+```bash
+git commit -m "第一行简要描述" -m "详细描述第一行
+详细描述第二行"
+```
+
+> 单行 `-m` 只给第一行即可（无 body）；有 body 用多个 `-m` 或 heredoc。subject 与 body 之间必须有空行分隔——Git 会把第一行作为 subject、其后的非空行归入 body，空行缺失会导致整个 message 变成长 subject。
+
 ### 示例
 
 ```bash
